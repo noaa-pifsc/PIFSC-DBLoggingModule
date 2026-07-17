@@ -54,7 +54,7 @@ before insert on DB_LOG_ENTRIES
 for each row
 begin
   select DB_LOG_ENTRIES_SEQ.nextval into :new.LOG_ENTRY_ID from dual;
-  :NEW.CREATED_BY := nvl(v('APP_USER'),user);
+  :NEW.CREATED_BY := nvl(SYS_CONTEXT('USERENV', 'CLIENT_IDENTIFIER'),user);
 end;
 /
 
@@ -129,7 +129,7 @@ for each row
 begin
   select DB_LOG_ENTRY_TYPES_SEQ.nextval into :new.ENTRY_TYPE_ID from dual;
   :NEW.CREATE_DATE := SYSDATE;
-  :NEW.CREATED_BY := nvl(v('APP_USER'),user);
+  :NEW.CREATED_BY := nvl(SYS_CONTEXT('USERENV', 'CLIENT_IDENTIFIER'),user);
 end;
 /
 CREATE OR REPLACE TRIGGER DB_LOG_ENTRY_TYPES_AUTO_BRU BEFORE
@@ -137,7 +137,7 @@ CREATE OR REPLACE TRIGGER DB_LOG_ENTRY_TYPES_AUTO_BRU BEFORE
     ON DB_LOG_ENTRY_TYPES FOR EACH ROW
     BEGIN
       :NEW.LAST_MOD_DATE := SYSDATE;
-      :NEW.LAST_MOD_BY := nvl(v('APP_USER'),user);
+      :NEW.LAST_MOD_BY := nvl(SYS_CONTEXT('USERENV', 'CLIENT_IDENTIFIER'),user);
 END;
 /
 
