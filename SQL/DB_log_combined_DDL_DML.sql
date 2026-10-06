@@ -16,3 +16,4 @@
 @@upgrades/DB_log_DDL_DML_upgrade_v0.3.sql
 @@upgrades/DB_log_DDL_DML_upgrade_v1.0.sql
 @@upgrades/DB_log_DDL_DML_upgrade_v1.1.sql
+@@upgrades/DB_log_DDL_DML_upgrade_v1.2.sql
