@@ -21,6 +21,8 @@ There is a need for application-level logging for database applications for info
     - URL: git@github.com:noaa-pifsc/Centralized-Configuration.git
     - Database: 1.1 (git tag: [centralized_configuration_db_v1.1](https://github.com/noaa-pifsc/Centralized-Configuration/releases/tag/centralized_configuration_db_v1.1))
 - ### [Install the DLM](./Installing%20or%20Upgrading%20the%20Database%20Logging%20Module.MD)
+  - Load the DLM Log Type Records by running the [load_db_log_entry_types.sql](../SQL/scripts/load_db_log_entry_types.sql) script
+  - \*Note: These Log Type Records must be loaded before the DB_LOG_PKG can be executed successfully
 - ### Load the runtime configuration options
   - To set the DLM data system status configuration to allow or prevent debugging messages from being inserted in the database, insert a CC_CONFIG_OPTIONS record  with the following values:
     - OPTION_NAME: DLM_SYSTEM_STATUS
