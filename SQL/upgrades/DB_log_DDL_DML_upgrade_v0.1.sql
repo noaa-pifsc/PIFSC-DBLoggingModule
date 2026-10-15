@@ -142,6 +142,15 @@ END;
 /
 
 
+--load the default entry types:
+insert into db_log_Entry_types (ENTRY_TYPE_CODE, ENTRY_TYPE_NAME, ENTRY_TYPE_DESC) values ('ERROR', 'Error Entry', 'This is an entry that indicates that an error was encountered during the given module execution');
+insert into db_log_Entry_types (ENTRY_TYPE_CODE, ENTRY_TYPE_NAME, ENTRY_TYPE_DESC) values ('SUCCESS', 'Success Entry', 'This is an entry that indicates that an action or sequence of actions where successful during the given module execution');
+insert into db_log_Entry_types (ENTRY_TYPE_CODE, ENTRY_TYPE_NAME, ENTRY_TYPE_DESC) values ('INFO', 'Informational Entry', 'This is an entry that is logged for informational purposes like a specific action is being taken during the given module execution that would.  These entries can be filtered out of reports for successful and error entries');
+insert into db_log_Entry_types (ENTRY_TYPE_CODE, ENTRY_TYPE_NAME, ENTRY_TYPE_DESC) values ('DEBUG', 'Debugging Entry', 'This is an entry that is logged for debugging purposes like a specific action is being taken during the given module execution, this may have more detail that an informational message and would be intended for developers');
+
+
+
+
 --Database Log Package Specification:
 CREATE OR REPLACE PACKAGE DB_LOG_PKG
 --this package provides functions and procedures to interact with the database log package module
